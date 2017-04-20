@@ -1,7 +1,7 @@
 <tr>
     <td>{{ label }}</td>
     <td>
-        {{ control }}
+        {{{ control }}}
         {{#error}}
         <p class="help-inline text-danger text-left">{{ error }}</p>
         {{/error}}

@@ -6,6 +6,10 @@ class Form implements FormInterface {
 
     protected $rowTemplate;
 
+    /**
+     * Set template for all row
+     * @param string $template
+     */
     public function setRowTemplate($template)
     {
         $this->rowTemplate = $template;
@@ -17,6 +21,10 @@ class Form implements FormInterface {
         return $this->rowTemplate;
     }
 
+    /**
+     * Row instance
+     * @return \Justin\Form\Row
+     */
     public function row()
     {
         return new Row($this->getRowTemplate());
