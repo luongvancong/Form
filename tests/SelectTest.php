@@ -28,6 +28,7 @@ class SelectTest extends TestCase {
     public function test_chaining()
     {
         $option = $this->select->class('form-control')->id('select');
-        $this->assertEquals('<select class="form-control" id="select"><option checked="checked" class="option_class" value="1">HN</option><option class="option_class" value="2">HCM</option><option class="option_class" value="3">DN</option></select>', $option);
+
+        $this->assertEquals('<select class="form-control" id="select"><option class="option_class" selected="selected" value="1">HN</option><option class="option_class" value="2">HCM</option><option class="option_class" value="3">DN</option></select>', $option);
     }
 }

@@ -40,7 +40,7 @@ class OptionCollection extends Tag {
             $option->value($key);
 
             if( $this->default == $option->getAttribute('value') ) {
-                $option->checked('checked');
+                $option->selected('selected');
             }
 
             $options[] = $option;
