@@ -1,26 +1,59 @@
 <?php
 
-use Justin\Form\Tag\Form;
-use Justin\Form\Util;
+use Justin\Form\Tag\Text;
 use PHPUnit\Framework\TestCase;
-use \Mockery as m;
 
 class FormTest extends TestCase {
 
     public function setUp()
     {
-        parent::setUp();
+        $this->form = new \Justin\Form\Form();
+        $this->m = new \Mustache_Engine();
     }
 
     public function tearDown()
     {
-        m::close();
+        unset($this->form);
     }
 
     public function test_form()
     {
-        $form = new Form();
-        $f = $form->class('form form-horizontal')->method('POST')->action('');
-        $this->assertEquals('<form action="" class="form form-horizontal" method="POST"></form>', $f);
+        $this->assertEquals('<form action="" method="POST">', $this->form->open());
+        $this->assertEquals('</form>', $this->form->close());
     }
+
+    public function test_form_group()
+    {
+        $actual = $this->form->row()->setLabel('Name')
+                                    ->setControl((new Text())->name('name')->value('Cong'))
+                                    ->setError('Error')
+                                    ->render();
+
+        $expected = $this->m->render(file_get_contents(realpath(__DIR__ . '/../src/views/form-group.tpl')), [
+            'label' => 'Name',
+            'control' => (new Text())->name('name')->value('Cong'),
+            'error' => 'Error'
+        ]);
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    public function test_table_row()
+    {
+        $template = file_get_contents(realpath(__DIR__ . '/../src/views/table-row.tpl'));
+        $actual = $this->form->row()->setLabel('Name')
+                                    ->setControl((new Text())->name('name')->value('Cong'))
+                                    ->setError('ERROR')
+                                    ->setTemplate($template)
+                                    ->render();
+
+        $expected = $this->m->render($template, [
+            'label' => 'Name',
+            'control' => (new Text())->name('name')->value('Cong'),
+            'error' => 'ERROR'
+        ]);
+
+        $this->assertEquals($expected, $actual);
+    }
+
 }
