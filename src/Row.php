@@ -19,6 +19,8 @@ class Row {
         if(!$template) {
             $template = file_get_contents(__DIR__ . '/views/form-group.tpl');
             $this->setTemplate($template);
+        } else {
+            $this->setTemplate($template);
         }
     }
 
