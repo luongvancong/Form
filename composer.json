@@ -3,6 +3,7 @@
     "description": "A package to create form quickly",
     "keywords": ["form", "boostrap-form", "table-form"],
     "author": "Justin Luong",
+    "license": "MIT",
     "require" : {
         "php": ">=5.3",
         "mustache/mustache": "^2.11"
