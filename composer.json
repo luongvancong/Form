@@ -1,7 +1,7 @@
 {
     "name": "justin/form",
-    "description": "This is a very cool package!",
-    "keywords": ["form", "boostrap-form", "awesome"],
+    "description": "A package to create form quickly",
+    "keywords": ["form", "boostrap-form", "table-form"],
     "author": "Justin Luong",
     "require" : {
         "php": ">=5.3",
