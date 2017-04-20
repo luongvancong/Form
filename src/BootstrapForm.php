@@ -4,8 +4,6 @@ namespace Justin\Form;
 
 class BootstrapForm extends Form {
 
-    protected $template;
-
     public function horizontal($action = "", $method = "POST", array $attributes = array())
     {
         $default = ['class' => 'form form-horizontal'];

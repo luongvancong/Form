@@ -4,20 +4,22 @@ namespace Justin\Form;
 
 class Form implements FormInterface {
 
+    protected $rowTemplate;
+
     public function setRowTemplate($template)
     {
-        $this->template = $template;
+        $this->getRowTemplate = $template;
         return $this;
     }
 
     public function getRowTemplate()
     {
-        return $this->template;
+        return $this->getRowTemplate;
     }
 
     public function row()
     {
-        return new Row($this->getRowTemplate());
+        return new Row($this->getRowTemplate);
     }
 
     public function open($action = "", $method = "POST", array $attributes = array())
