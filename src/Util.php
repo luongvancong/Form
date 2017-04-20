@@ -11,7 +11,11 @@ class Util {
 
         if(is_array($attributes)) {
             foreach($attributes as $key => $value) {
-                $stringAttribute .= "$key=\"$value\" ";
+                if(is_array($value)) {
+                    $stringAttribute .= $key.'="'.implode(' ', $value).'"';
+                } else {
+                    $stringAttribute .= "$key=\"$value\" ";
+                }
             }
         }else{
             $stringAttribute = @strval($attributes);
