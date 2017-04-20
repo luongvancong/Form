@@ -6,6 +6,7 @@
         echo $form->row()
                   ->setLabel('Text')
                   ->setControl((new Justin\Form\Tag\Text())->name('name')->class('form-control input-sm'))
+                  ->setError("ERROR")
                   ->render();
 
         echo $form->row()
