@@ -8,18 +8,18 @@ class Form implements FormInterface {
 
     public function setRowTemplate($template)
     {
-        $this->getRowTemplate = $template;
+        $this->rowTemplate = $template;
         return $this;
     }
 
     public function getRowTemplate()
     {
-        return $this->getRowTemplate;
+        return $this->rowTemplate;
     }
 
     public function row()
     {
-        return new Row($this->getRowTemplate);
+        return new Row($this->getRowTemplate());
     }
 
     public function open($action = "", $method = "POST", array $attributes = array())
