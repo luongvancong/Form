@@ -1,6 +1,7 @@
 <?php
 
 use Justin\Form\Tag\Checkbox;
+use Justin\Form\Tag\Hidden;
 use Justin\Form\Tag\Input;
 use Justin\Form\Tag\Radio;
 use PHPUnit\Framework\TestCase;
@@ -31,6 +32,9 @@ class InputTest extends TestCase {
 
         $checkbox = (new Checkbox())->class('checkbox')->value(10);
         $this->assertEquals('<input class="checkbox" type="checkbox" value="10" />', $checkbox);
+
+        $hidden = (new Hidden())->class('test')->value(10);
+        $this->assertEquals('<input class="test" type="hidden" value="10" />', $hidden);
 
         $checkbox = (new Checkbox())->class('checkbox')->value(10)->default(10);
         $this->assertEquals('<input checked="checked" class="checkbox" type="checkbox" value="10" />', $checkbox);

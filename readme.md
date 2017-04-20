@@ -47,6 +47,8 @@
                   ->setControl((new Justin\Form\Tag\Textarea("Value"))->class('form-control'))
                   ->render();
 
+        echo $form->row()->setLabel('')->setControl((new Justin\Form\Tag\Button("Submit"))->class('btn btn-sm btn-primary')->type('submit'))->render();
+
         echo $form->close();
 
 # Horizontal
@@ -57,3 +59,29 @@
 
         $form = new Justin\Form\BootstrapForm();
         echo $form->inline();
+
+# Input
+## Text
+
+        echo (new Justin\Form\Tag\Text())->class("form-control");
+
+## Hidden
+
+        echo (new Justin\Form\Tag\Hidden())->class("form-control");
+
+## Radio
+
+        echo (new Justin\Form\Tag\Radio())->value(1)->default(1)->class("form-control");
+## Checkbox
+
+# Select
+
+        $data = [
+            1 => 'Apple',
+            2 => 'Orange'
+        ];
+        echo (new Justin\Form\Tag\Select(new Justin\Form\Tag\OptionCollection($data)));
+
+# Textarea
+
+        echo (new Justin\Form\Tag\Textarea("Value"))->class('form-control');
